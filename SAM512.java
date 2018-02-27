@@ -16,7 +16,6 @@ public class SAM512 {
 		database = new Database("jdbc:sqlite:" + location);
 		String input, userName, password;
 		
-
 		do {
 			System.out.println();
 			System.out.println("Type INSERT to insert password, or CHECK to check password, or STOP to stop");
@@ -63,12 +62,9 @@ public class SAM512 {
 
 	/**
 	 * 
-	 * @param user
-	 *            userName to be stored in database
-	 * @param password
-	 *            to be hashed
-	 * @param seed
-	 *            used to avoid collisions
+	 * @param user userName to be stored in database
+	 * @param password to be hashed
+	 * @param seed used to avoid collisions
 	 * @return The final hashed value of the string
 	 */
 	private static HashCode hash(String user, String password, Seed seed) {
@@ -86,8 +82,7 @@ public class SAM512 {
 
 	/**
 	 * 
-	 * @param theString
-	 *            string to be converted in 7 portions
+	 * @param theString string to be converted in 7 portions
 	 * @return a string divisible by 3
 	 */
 	private static String partitionable(String theString) {
@@ -101,8 +96,7 @@ public class SAM512 {
 	 * Separates the String into 7 equally sized pieces which will each be turned
 	 * into 64bit bit-strings
 	 * 
-	 * @param theString
-	 *            String to be separated into pieces
+	 * @param theString String to be separated into pieces
 	 * @return The string turned into 7 equally sized pieces
 	 */
 	private static Partition[] partition(String theString) {
