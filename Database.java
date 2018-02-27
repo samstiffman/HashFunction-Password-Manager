@@ -28,12 +28,9 @@ public class Database {
 	/**
 	 * Inserts hashed data into the database
 	 * 
-	 * @param userName
-	 *            used to make sure data inserted is correct
-	 * @param hashValue
-	 *            Used to make sure the passwords have no collisions
-	 * @param hash
-	 *            hashed password
+	 * @param userName used to make sure data inserted is correct
+	 * @param hashValue Used to make sure the passwords have no collisions
+	 * @param hash hashed password
 	 */
 	public void insert(String userName, long hashValue, String hash) {
 		String sql = "INSERT INTO hashedPasswords(userName,seed,hash) VALUES(?,?,?)";
@@ -52,8 +49,7 @@ public class Database {
 	/**
 	 * Checks to see if a username already exists
 	 * 
-	 * @param userName
-	 *            to compare with database
+	 * @param userName to compare with database
 	 * @return true if username exists false otherwise
 	 */
 	public boolean checkUser(String userName) {
