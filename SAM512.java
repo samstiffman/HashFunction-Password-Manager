@@ -16,12 +16,7 @@ public class SAM512 {
 		database = new Database("jdbc:sqlite:" + location);
 		String input, userName, password;
 		
-		for(byte i=0; i<1000; i++) {
-			hash(String.valueOf(i), "password", new Seed());
-		}
-		for(byte i=0; i<1000; i++) {
-			hash("password" + i, String.valueOf(i), new Seed());
-		}
+
 		do {
 			System.out.println();
 			System.out.println("Type INSERT to insert password, or CHECK to check password, or STOP to stop");
