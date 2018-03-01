@@ -3,21 +3,33 @@ import java.security.SecureRandom;
 public class Seed {
 	public long hashValue;
 
+	/**
+	 * Constructor with parameters only used with comparison
+	 * @param l seed retrieved from database to check if the user has the correct credentials
+	 */
 	public Seed(long l) {
 		this.hashValue = l;
 	}
 
 	public Seed() {
+		
+		//Random numbers used to seed other random number generators to make it more random
 		SecureRandom random = new SecureRandom();
 		SecureRandom random2 = new SecureRandom();
 		SecureRandom random3 = new SecureRandom();
 		random2.setSeed(random3.nextLong());
 		random.setSeed(random2.nextLong());
-		this.hashValue += random.nextInt(4) + random2.nextInt(4) + random3.nextInt(4);
+		long test = random.nextInt(4) + random2.nextInt(4) + random3.nextInt(4);
+		if(test == 0)
+			hashValue *= 10;
+		else
+			hashValue += test;
 		for (int i = 1; i < 18; i++) {
-			this.hashValue += (Math.pow(10, i)) * random.nextInt(4);
-			this.hashValue += (Math.pow(10, i)) * random2.nextInt(4);
-			this.hashValue += (Math.pow(10, i)) * random3.nextInt(4);
+			test = (long) (((Math.pow(10, i)) * random.nextInt(4)) + ((Math.pow(10, i)) * random2.nextInt(4)) + ((Math.pow(10, i)) * random3.nextInt(4)));
+			if(test == 0)
+				hashValue *= 10;
+			else
+				hashValue += test;
 		}
 	}
 }
