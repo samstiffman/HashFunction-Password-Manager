@@ -102,48 +102,48 @@ public class SAM512 {
 	private static Partition[] partition(String theString) {
 
 		theString = partitionable(theString);
-		byte length = (byte) theString.length();
-		byte partitionSize = (byte) (length / 7);
+		int length = theString.length();
+		int partitionSize = length / 7;
 		char[] tempArray = new char[partitionSize];
 
 		Partition a = new Partition(partitionSize);
-		for (byte i = 0; i < partitionSize; i++) {
+		for (int i = 0; i < partitionSize; i++) {
 			tempArray[i] = theString.charAt(i);
 		}
 		a.fill(tempArray);
 
 		Partition b = new Partition(partitionSize);
-		for (byte i = 0; i < partitionSize; i++) {
+		for (int i = 0; i < partitionSize; i++) {
 			tempArray[i] = theString.charAt(i + partitionSize);
 		}
 		b.fill(tempArray);
 
 		Partition c = new Partition(partitionSize);
-		for (byte i = 0; i < partitionSize; i++) {
+		for (int i = 0; i < partitionSize; i++) {
 			tempArray[i] = theString.charAt(i + (2 * partitionSize));
 		}
 		c.fill(tempArray);
 
 		Partition d = new Partition(partitionSize);
-		for (byte i = 0; i < partitionSize; i++) {
+		for (int i = 0; i < partitionSize; i++) {
 			tempArray[i] = theString.charAt(i + (3 * partitionSize));
 		}
 		d.fill(tempArray);
 
 		Partition e = new Partition(partitionSize);
-		for (byte i = 0; i < partitionSize; i++) {
+		for (int i = 0; i < partitionSize; i++) {
 			tempArray[i] = theString.charAt(i + (4 * partitionSize));
 		}
 		e.fill(tempArray);
 
 		Partition f = new Partition(partitionSize);
-		for (byte i = 0; i < partitionSize; i++) {
+		for (int i = 0; i < partitionSize; i++) {
 			tempArray[i] = theString.charAt(i + (5 * partitionSize));
 		}
 		f.fill(tempArray);
 
 		Partition g = new Partition(partitionSize);
-		for (byte i = 0; i < partitionSize; i++) {
+		for (int i = 0; i < partitionSize; i++) {
 			tempArray[i] = theString.charAt(i + (6 * partitionSize));
 		}
 		g.fill(tempArray);
