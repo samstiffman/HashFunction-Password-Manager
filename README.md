@@ -8,9 +8,13 @@ To construct a database I used SQLite studio a free SQLite database editor but t
 Java SQLite library commands. You can find an SQLite java tutorial at http://www.sqlitetutorial.net/sqlite-java/
 This tutorial will teach the basics of using SQL commands in Java.
 
+For the Java to work without editing the code you will need a database with a table named hashedPasswords
+this table has to contain 3 columns userName, seed, and hash userName and hash must both be some sort of 
+text data type TEXT/TINYTEXT/VARCHAR etc. The seed column should have some sort of integer dataType
+
 In order to use my program you will need some sort of SQL database
 I personally use SQLite which is an offline SQL database since this project has no need for servers. 
 
 The main method for my program is contained in the SAM512 .java file
 
-If you have any ideas or want to learn more about Cryptography or hashing please comment Thank You!
+If you have any ideas or want to learn more about Cryptography or hashing please comment, Thank You!
