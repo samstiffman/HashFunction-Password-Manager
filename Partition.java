@@ -9,22 +9,20 @@ public class Partition {
 	/**
 	 * sets partition size
 	 * 
-	 * @param size
-	 *            of partitions
+	 * @param size of partitions
 	 */
 	public Partition(int size) {
-		this.partition = new char[size];
+		partition = new char[size];
 	}
 
 	/**
 	 * Fills partitions with characters from array
 	 * 
-	 * @param arrayOfChars
-	 *            array of characters to be but into the partition
+	 * @param arrayOfChars array of characters to be but into the partition ae the portion of the String
 	 */
 	public void fill(char[] a) {
 		for (int i = 0; i < a.length; i++) {
-			this.partition[i] = a[i];
+			partition[i] = a[i];
 		}
 	}
 
@@ -34,47 +32,47 @@ public class Partition {
 	 */
 	public void makeBitArray(long hashValue) {
 
-		this.bitArray = new boolean[64];
+		bitArray = new boolean[64];
 		
 		long a;
-		for (byte q = 0; q < 8; q++) {
-			for (int i = 1; i < getDigits(hashValue); i++) {
+		for (int q = 0; q < 8; q++) {
+			for (int i = 1; i < 18; i++) {
 				a = hashValue % (10 * i);
-				this.bitArray[(int) (Math.abs((a + i + q + 6)) % 64)] = !this.bitArray[(int) (Math.abs((a + i + q)) % 64)];
-				this.bitArray[(int) (Math.abs((a - i + q + 3)) % 64)] = !this.bitArray[(int) (Math.abs((a - i + q)) % 64)];
-				this.bitArray[(int) (Math.abs((a + i + q - 4)) % 64)] = (this.bitArray[i] == this.bitArray[q])? !this.bitArray[i]: !this.bitArray[q];
+				bitArray[(int) (Math.abs((a + i + q + 6)) % 64)] = !bitArray[(int) (Math.abs((a + i + q)) % 64)];
+				bitArray[(int) (Math.abs((a - i + q + 3)) % 64)] = !bitArray[(int) (Math.abs((a - i + q)) % 64)];
+				bitArray[(int) (Math.abs((a + i + q - 4)) % 64)] = (bitArray[i] == bitArray[q])? !bitArray[i]: !bitArray[q];
 			}
-			this.numberArray = this.toBitArray();
-			this.seedArray = this.toBitArray();
+			numberArray = toBitArray();
+			seedArray = toBitArray();
 		}
 
 		// Here is where we do our final mods
-		int max = 0, min = this.partition[0], range;
-		for (char e : this.partition) {
+		int max = 0, min = partition[0], range;
+		for (char e : partition) {
 			if ((int) e > max) 
 				max = (int) e;
 			else if ((int) e < min) 
 				min = (int) e;
 		}
 		range = max - min;
-		int length = this.partition.length;
-		for (int i = 0; i < this.partition.length; i++) {
-			for (byte b = 1; b < 50; b++) {
-				this.bitArray[((int) this.partition[i % length] * b) % 64] = this.bitArray[((int) this.partition[i % length] + b) % 64];
-				this.bitArray[((int) this.partition[i % length] + min * b) % 64] = !this.bitArray[(((int) this.partition[i % length]) >> 2) % 64];
-				this.bitArray[((int) this.partition[i % length] / b) % 64] = !this.bitArray[(((int) this.partition[i % length]) << 4) % 64];
-				this.bitArray[((int) this.partition[i % length] + min * range / b) % 64] = !this.bitArray[(((int) this.partition[i % length]) >> b) % 64];
+		int length = partition.length;
+		for (int i = 0; i < partition.length; i++) {
+			for (int b = 1; b < 50; b++) {
+				bitArray[((int) partition[i % length] * b) % 64] = bitArray[((int) partition[i % length] + b) % 64];
+				bitArray[((int) partition[i % length] + min * b) % 64] = !bitArray[(((int) partition[i % length]) >> 2) % 64];
+				bitArray[((int) partition[i % length] / b) % 64] = !bitArray[(((int) partition[i % length]) << 4) % 64];
+				bitArray[((int) partition[i % length] + min * range / b) % 64] = !bitArray[(((int) partition[i % length]) >> b) % 64];
 			}
 
 		}
-		this.numberArray = this.toBitArray();
+		numberArray = toBitArray();
 
 	}
 
 	/**
 	 * 
 	 * @param a integer inputed
-	 * @return first digit of int
+	 * @return first digit of specified integer
 	 */
 	public static int getFirst(int a) {
 		while (a != 0) {
@@ -84,27 +82,14 @@ public class Partition {
 		}
 		return a;
 	}
-
 	/**
-	 * 
-	 * @param integer inputed
-	 * @return amount of digits in integer
-	 */
-	public static long getDigits(long hashValue) {
-		long count = 0;
-		while (hashValue != 0) {
-			hashValue = hashValue / 10;
-			count++;
-			if (hashValue / 10 == 0) 
-				return count;
-		}
-		return count;
-	}
-
+	 * Method for converting the array of boolean values into an array of 0's and 1's
+ 	 * @return the array of 0's and 1's
+ 	 */
 	public int[] toBitArray() {
 		int[] numberArray = new int[64];
-		for (int i = 0; i < this.bitArray.length; i++) 
-			numberArray[i] = (this.bitArray[i]) ? 1 : 0;
+		for (int i = 0; i < bitArray.length; i++) 
+			numberArray[i] = (bitArray[i]) ? 1 : 0;
 		return numberArray;
 	}
 }
