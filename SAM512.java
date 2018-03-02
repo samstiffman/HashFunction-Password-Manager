@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class SAM512 {
 
-	private final static byte[] primeArray = new byte[] { 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
+	private final static int[] primeArray = new int[] { 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
 			61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113 };
 	static Database database;
 
@@ -60,7 +60,7 @@ public class SAM512 {
 	}
 
 	/**
-	 * 
+	 * Method that hashes the password and inserts it into the database
 	 * @param user userName to be stored in database
 	 * @param password to be hashed
 	 * @param seed used to avoid collisions
@@ -80,7 +80,7 @@ public class SAM512 {
 	}
 
 	/**
-	 * 
+	 * Makes the password able to be seperated into 7 pieces
 	 * @param theString string to be converted in 7 portions
 	 * @return a string divisible by 3
 	 */
