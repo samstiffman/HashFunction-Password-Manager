@@ -6,7 +6,6 @@ public class SAM512 {
 			61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113 };
 	static Database database;
 
-	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 
