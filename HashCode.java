@@ -32,6 +32,7 @@ public class HashCode {
 		
 
 		// convert to hex
+		// I know there are better ways to convert integers to hexidecimal but I wanted to show I know how
 		int[] temp = new int[4];
 		int temporary;
 		for (int i = 0; i < 512; i += 4) {
