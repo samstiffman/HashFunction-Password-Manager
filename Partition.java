@@ -61,10 +61,8 @@ public class Partition {
 				bitArray[((int) partition[i % length] / b) % 64] = !bitArray[(((int) partition[i % length]) << 4) % 64];
 				bitArray[((int) partition[i % length] + min * range / b) % 64] = !bitArray[(((int) partition[i % length]) >> b) % 64];
 			}
-
 		}
 		numberArray = toBitArray();
-
 	}
 
 	/**
