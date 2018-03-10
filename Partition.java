@@ -70,19 +70,6 @@ public class Partition {
 	}
 
 	/**
-	 * 
-	 * @param a integer inputed
-	 * @return first digit of specified integer
-	 */
-	public static int getFirst(int a) {
-		while (a != 0) {
-			a = a/10;
-			if(a/10 == 0)
-				return a;
-		}
-		return a;
-	}
-	/**
 	 * Method for converting the array of boolean values into an array of 0's and 1's
  	 * @return the array of 0's and 1's
  	 */
