@@ -6,7 +6,6 @@ public class SAM512 {
 			61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113 };
 	static Database database;
 	
-	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 
@@ -16,12 +15,12 @@ public class SAM512 {
 		database = new Database("jdbc:sqlite:" + location);
 		String input, userName, password;
 		
-		do {
+		while(true) {
 			System.out.println();
 			System.out.println("Type INSERT to insert password, or CHECK to check password, or STOP to stop");
-			input = in.nextLine();
+			input = in.nextLine().toUpperCase();
 			
-			switch (input.toUpperCase()) {
+			switch (input) {
 			case "INSERT":
 				System.out.println("Please enter your username");
 				userName = in.nextLine();
@@ -55,8 +54,7 @@ public class SAM512 {
 			default:
 				System.out.println("You did not enter INSERT, CHECK, or STOP");		
 			}
-		} while (!in.equals("STOP"));
-		in.close();
+		}
 	}
 
 	private static boolean testHash(String user, String s) {
