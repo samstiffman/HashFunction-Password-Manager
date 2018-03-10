@@ -5,10 +5,10 @@ public class Seed {
 
 	/**
 	 * Constructor with parameters only used with comparison
-	 * @param l seed retrieved from database to check if the user has the correct credentials
+	 * @param targetSeed seed retrieved from database to check if the user has the correct credentials
 	 */
-	public Seed(long l) {
-		this.hashValue = l;
+	public Seed(long targetSeed) {
+		hashValue = targetSeed;
 	}
 
 	public Seed() {
