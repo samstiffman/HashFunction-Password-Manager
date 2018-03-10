@@ -82,7 +82,7 @@ public class SAM512 {
 	}
 
 	/**
-	 * Makes the password able to be seperated into 7 pieces
+	 * Makes the length of the password divisible by 7
 	 * @param theString string to be converted in 7 portions
 	 * @return a string divisible by 3
 	 */
