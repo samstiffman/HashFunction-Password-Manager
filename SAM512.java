@@ -86,9 +86,8 @@ public class SAM512 {
 	 * @return a string divisible by 3
 	 */
 	private static String partitionable(String theString) {
-		while (theString.length() % 7 != 0) {
+		while (theString.length() % 7 != 0) 
 			theString += (char) (primeArray[theString.length()]);
-		}
 		return theString;
 	}
 
