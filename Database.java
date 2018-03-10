@@ -15,7 +15,7 @@ public class Database {
 		Connection conn = null;
 		try {
 			// db parameters
-			String url = this.address;
+			String url = address;
 			// create a connection to the database
 			conn = DriverManager.getConnection(url);
 
@@ -35,12 +35,12 @@ public class Database {
 	public void insert(String userName, long hashValue, String hash) {
 		String sql = "INSERT INTO hashedPasswords(userName,seed,hash) VALUES(?,?,?)";
 
-		try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, userName);
 			pstmt.setLong(2, hashValue);
 			pstmt.setString(3, hash);
 			pstmt.executeUpdate();
-			System.out.println("Data successfully inserted");
+			//System.out.println("Password successfully inserted");
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		}
@@ -54,15 +54,14 @@ public class Database {
 	 */
 	public boolean checkUser(String userName) {
 		String sql = "SELECT userName " + "FROM hashedPasswords WHERE userName = ?";
-		try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, userName);
 
 			ResultSet rs = pstmt.executeQuery();
 
 			// get value from result set checks to make sure it exists
-			while (rs.next()) {
+			while (rs.next()) 
 				return userName.equals(rs.getString("userName"));
-			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		}
@@ -71,7 +70,7 @@ public class Database {
 
 	public String getHash(String userName) {
 		String sql = "SELECT hash " + "FROM hashedPasswords WHERE userName = ?";
-		try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, userName);
 
 			ResultSet rs = pstmt.executeQuery();
@@ -84,14 +83,14 @@ public class Database {
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		}
+		System.out.println("Hash was not retrieved");
 		return null;
 	}
-
 	/**
-	 * retrieves the correct seed that corresponds to a username
+	 * Retrieves the correct seed that corresponds to a username for use with checking the hash
 	 * 
 	 * @param userName
-	 * @return
+	 * @return the Correct seed corresponding to the userName
 	 */
 	public long getSeed(String userName) {
 		String sql = "SELECT seed " + "FROM hashedPasswords WHERE userName = ?";
