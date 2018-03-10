@@ -71,13 +71,12 @@ public class SAM512 {
 	private static HashCode hash(String user, String password, Seed seed) {
 
 		Partition[] testPartitions = partition(password);
-		for (Partition p : testPartitions) {
+		for (Partition p : testPartitions) 
 			p.makeBitArray(seed.hashValue);
-		}
+		
 		HashCode hashed = new HashCode(testPartitions);
-		if (!database.checkUser(user)) {
+		if (!database.checkUser(user)) 
 			database.insert(user, seed.hashValue, String.valueOf(hashed.hexCode));
-		}
 		return hashed;
 	}
 
