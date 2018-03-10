@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Database {
-	private String address;
+	private final String address;
 
 	public Database(String address) {
 		this.address = address;
