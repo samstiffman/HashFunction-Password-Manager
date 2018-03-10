@@ -1,7 +1,7 @@
 # Password Manager/Hash Function
 Simple java hash function integrated with an SQLite server, I made this as a proof of concept hashing algorithm, it hashes passwords of any length. It is integrated with a database but the database needs to have specific parameters that are detailed in the Database.java file.
 
-The hash function transforms a password into a bit string of length 512, it also uses random number generation when the hashes are created so if multiple users have the same password the hashes stored in the database will still be different.
+The hash function transforms a password into a bit string of length 512, it also uses random number generation when the hashes are created so if multiple users have the same password the hashes stored in the database will still be different. 
 
 To construct a database I used SQLite studio a free SQLite database editor but this can be accomplished using the 
 Java SQLite library commands. You can find an SQLite java tutorial at http://www.sqlitetutorial.net/sqlite-java/
