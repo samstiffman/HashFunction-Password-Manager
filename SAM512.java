@@ -107,51 +107,51 @@ public class SAM512 {
 		int upperBound = partitionSize;
 		int lowerBound = 0;
 
-		Partition a = new Partition(partitionSize);
+				Partition a = new Partition(partitionSize);
 		for (int i = lowerBound; i < upperBound; i++) 
-			tempArray[i] = theString.charAt(i);
+			tempArray[i-lowerBound] = theString.charAt(i);
 		a.fill(tempArray);
 		upperBound += partitionSize;
 		lowerBound += partitionSize;
 		
 		Partition b = new Partition(partitionSize);
 		for (int i = lowerBound; i < upperBound; i++) 
-			tempArray[i] = theString.charAt(i);
+			tempArray[i-lowerBound] = theString.charAt(i);
 		b.fill(tempArray);
 		upperBound += partitionSize;
 		lowerBound += partitionSize;
 		
 		Partition c = new Partition(partitionSize);
 		for (int i = lowerBound; i < upperBound; i++) 
-			tempArray[i] = theString.charAt(i);
+			tempArray[i-lowerBound] = theString.charAt(i);
 		c.fill(tempArray);
 		upperBound += partitionSize;
 		lowerBound += partitionSize;
 		
 		Partition d = new Partition(partitionSize);
 		for (int i = lowerBound; i < upperBound; i++) 
-			tempArray[i] = theString.charAt(i);
+			tempArray[i-lowerBound] = theString.charAt(i);
 		d.fill(tempArray);
 		upperBound += partitionSize;
 		lowerBound += partitionSize;
 		
 		Partition e = new Partition(partitionSize);
 		for (int i = lowerBound; i < upperBound; i++) 
-			tempArray[i] = theString.charAt(i);
+			tempArray[i-lowerBound] = theString.charAt(i);
 		e.fill(tempArray);
 		upperBound += partitionSize;
 		lowerBound += partitionSize;
 		
 		Partition f = new Partition(partitionSize);
 		for (int i = lowerBound; i < upperBound; i++) 
-			tempArray[i] = theString.charAt(i);
+			tempArray[i-lowerBound] = theString.charAt(i);
 		f.fill(tempArray);
 		upperBound += partitionSize;
 		lowerBound += partitionSize;
 		
 		Partition g = new Partition(partitionSize);
 		for (int i = lowerBound; i < upperBound; i++) 
-			tempArray[i] = theString.charAt(i);
+			tempArray[i-lowerBound] = theString.charAt(i);
 		g.fill(tempArray);
 		upperBound += partitionSize;
 		lowerBound += partitionSize;
