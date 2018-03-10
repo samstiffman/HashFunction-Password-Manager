@@ -2,10 +2,11 @@ import java.util.Scanner;
 
 public class SAM512 {
 
-	private final static int[] primeArray = new int[] { 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
+	private final static int[] primeArray = { 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
 			61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113 };
 	static Database database;
-
+	
+	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 
