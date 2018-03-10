@@ -49,6 +49,7 @@ public class SAM512 {
 				System.out.println("Sorry that was the incorrect password");
 				break;
 			case "STOP":
+				in.close();
 				System.exit(0);
 			default:
 				System.out.println("You did not enter INSERT, CHECK, or STOP");		
