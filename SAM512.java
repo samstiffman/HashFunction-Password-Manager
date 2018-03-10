@@ -9,7 +9,7 @@ public class SAM512 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 
-		System.out.println("Please enter the location of your database for example C:\\users\\yourName\\desktop\\database.db");
+		System.out.println("Please enter the location of your database for example C:\\users\\yourName\\Desktop\\database.db");
 		String location = in.nextLine();
 
 		database = new Database("jdbc:sqlite:" + location);
@@ -20,7 +20,7 @@ public class SAM512 {
 			System.out.println("Type INSERT to insert password, or CHECK to check password, or STOP to stop");
 			input = in.nextLine();
 			
-			switch (input) {
+			switch (input.toUpperCase()) {
 			case "INSERT":
 				System.out.println("Please enter your username");
 				userName = in.nextLine();
@@ -46,10 +46,12 @@ public class SAM512 {
 					System.out.println("You used the correct password");
 					continue;
 				}
-				System.out.println("Sorry that was the inccorrect password");
+				System.out.println("Sorry that was the incorrect password");
 				break;
 			case "STOP":
 				System.exit(0);
+			default:
+				System.out.println("You did not enter INSERT, CHECK, or STOP");		
 			}
 		} while (!in.equals("STOP"));
 		in.close();
