@@ -17,7 +17,8 @@ public class SAM512 {
 		
 		while(true) {
 			System.out.println();
-			System.out.println("Type INSERT to insert password, or CHECK to check password, or STOP to stop");
+			System.out.println("Type INSERT to insert password, CHECK to check password, VIEW to view hash" 
+					   + "for a password or STOP to stop");
 			input = in.nextLine().toUpperCase();
 			
 			switch (input) {
@@ -48,11 +49,20 @@ public class SAM512 {
 				}
 				System.out.println("Sorry that was the incorrect password");
 				break;
+			case "VIEW":
+				System.out.println("Please enter your username");
+				userName = in.nextLine();
+				if (!database.checkUser(userName)) {
+					System.out.println("Sorry but that username does not exist");
+					continue;
+				}
+				System.out.println(database.getHash(userName));
+				break;
 			case "STOP":
 				in.close();
 				System.exit(0);
 			default:
-				System.out.println("You did not enter INSERT, CHECK, or STOP");		
+				System.out.println("You did not enter INSERT, CHECK, VIEW, or STOP");		
 			}
 		}
 	}
