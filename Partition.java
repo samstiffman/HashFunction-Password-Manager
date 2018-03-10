@@ -8,7 +8,6 @@ public class Partition {
 
 	/**
 	 * sets partition size
-	 * 
 	 * @param size of partitions
 	 */
 	public Partition(int size) {
@@ -17,7 +16,6 @@ public class Partition {
 
 	/**
 	 * Fills partitions with characters from array
-	 * 
 	 * @param arrayOfChars array of characters to be but into the partition ae the portion of the String
 	 */
 	public void fill(char[] a) {
@@ -48,11 +46,11 @@ public class Partition {
 
 		// Here is where we do our final mods
 		int max = 0, min = partition[0], range;
-		for (char e : partition) {
-			if ((int) e > max) 
-				max = (int) e;
-			else if ((int) e < min) 
-				min = (int) e;
+		for (int e : partition) {
+			if (e > max) 
+				max = e;
+			else if (e < min) 
+				min = e;
 		}
 		range = max - min;
 		int length = partition.length;
