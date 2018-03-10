@@ -17,7 +17,7 @@ public class SAM512 {
 		
 		while(true) {
 			System.out.println();
-			System.out.println("Type INSERT to insert password, CHECK to check password, VIEW to view hash" 
+			System.out.println("Type INSERT to insert password, CHECK to check password, VIEW to view hash " 
 					   + "for a password or STOP to stop");
 			input = in.nextLine().toUpperCase();
 			
