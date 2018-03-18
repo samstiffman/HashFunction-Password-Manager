@@ -14,6 +14,11 @@ text data type TEXT/TINYTEXT/VARCHAR etc _I personally used VARCHAR(128) for has
 In order to use my program you will need some sort of SQL database
 I personally use SQLite which is an offline SQL database since this project has no need for servers. 
 
-The main method for my program is contained in the SAM512 .java file
+## The Files
+The Main Method is contained in the SAM512.java file, the Database.java file contains the code for interfacing with SQLITE.
+The Seed.java is the class for the random 17 digit number generation.
+The Partition.java file contains the actual hash function 
+The HashCode.java file is the final hashcode object created by merging the 8 partitions, and also contains the conversion to hexidecimal
+
 
 If you have any ideas or want to learn more about Cryptography or hashing please comment, Thank You!
