@@ -21,4 +21,4 @@ The Partition.java file contains the actual hash function
 The HashCode.java file is the final hashcode object created by merging the 8 partitions, and also contains the conversion to hexidecimal
 
 
-If you have any ideas or want to learn more about Cryptography or hashing please comment, Thank You!
+Last Edit: May 11, 2018
